@@ -1,11 +1,13 @@
 package com.framewiki.proxy.server.core.side.server.listen.clear.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.network.proxy.executor.FrameExecutor;
+import com.framewiki.proxy.server.core.side.server.listen.config.impl.SecretSimpleListenServerConfig;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.Objects;
 import java.util.concurrent.ScheduledFuture;
@@ -19,8 +21,12 @@ import java.util.concurrent.ScheduledFuture;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class ClearInvalidSocketPartThread implements IClearInvalidSocketPartThread {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(ClearInvalidSocketPartThread.class);
 
 	/**
 	 * 监听线程

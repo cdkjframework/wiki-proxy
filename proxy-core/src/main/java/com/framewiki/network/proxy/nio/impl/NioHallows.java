@@ -1,6 +1,8 @@
 package com.framewiki.network.proxy.nio.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.executor.FrameExecutor;
+import com.framewiki.network.proxy.model.FrameResultModel;
 import com.framewiki.network.proxy.nio.NioProcessed;
 import com.framewiki.network.proxy.util.AssertUtils;
 import com.framewiki.network.proxy.util.CountWaitLatch;
@@ -8,7 +10,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.nio.channels.SelectableChannel;
@@ -29,9 +31,13 @@ import java.util.concurrent.TimeUnit;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class NioHallows implements Runnable {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(NioHallows.class);
 
 	/**
 	 * 单例

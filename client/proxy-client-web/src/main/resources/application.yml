@@ -4,3 +4,11 @@ server:
 spring:
   application:
     name: wiki-proxy-client
+  proxy:
+    client:
+      ip:
+        - 127.0.0.1
+      port:
+        - 8081
+      dest-port:
+        - 10010

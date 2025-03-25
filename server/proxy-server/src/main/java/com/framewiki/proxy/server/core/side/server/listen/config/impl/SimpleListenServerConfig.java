@@ -1,11 +1,13 @@
 package com.framewiki.proxy.server.core.side.server.listen.config.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
 import com.framewiki.network.proxy.api.socket.part.SimpleSocketPart;
 import com.framewiki.network.proxy.channel.impl.InteractiveChannelBase;
 import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
 import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.server.core.side.server.client.adapter.impl.ReadAheadPassValueAdapter;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.impl.ClearInvalidSocketPartThread;
@@ -17,7 +19,7 @@ import com.framewiki.proxy.server.core.side.server.listen.recv.impl.CommonReplyH
 import com.framewiki.proxy.server.core.side.server.listen.serversocket.ICreateServerSocket;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -37,10 +39,14 @@ import java.nio.charset.StandardCharsets;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 @Data
 @NoArgsConstructor
 public class SimpleListenServerConfig implements ListenServerConfig {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(SimpleListenServerConfig.class);
 
 	/**
 	 * 监听端口

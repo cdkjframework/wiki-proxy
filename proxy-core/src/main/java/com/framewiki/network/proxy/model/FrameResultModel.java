@@ -2,9 +2,11 @@ package com.framewiki.network.proxy.model;
 
 import com.alibaba.fastjson.JSONAware;
 import com.alibaba.fastjson.JSONObject;
+import com.cdkjframework.util.log.LogUtils;
+import com.framewiki.network.proxy.api.socket.part.HttpRouteSocketPart;
 import com.framewiki.network.proxy.model.enums.FrameResultEnum;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.lang.reflect.Field;
 
@@ -19,8 +21,12 @@ import java.lang.reflect.Field;
  * @Version: 1.0
  */
 @Data
-@Slf4j
+
 public class FrameResultModel implements JSONAware {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(FrameResultModel.class);
 
 	/**
 	 * 返回码
@@ -135,7 +141,7 @@ public class FrameResultModel implements JSONAware {
 		try {
 			field = this.getClass().getDeclaredField(fieldStr);
 		} catch (NoSuchFieldException | SecurityException e) {
-			log.warn("ResultModel获取字段失败！", e);
+			log.warn(e,"ResultModel获取字段失败！");
 			return this;
 		}
 
@@ -143,7 +149,7 @@ public class FrameResultModel implements JSONAware {
 		try {
 			field.set(this, object);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
-			log.warn("ResultModel获取字段失败！", e);
+			log.warn(e,"ResultModel获取字段失败！");
 			return this;
 		}
 

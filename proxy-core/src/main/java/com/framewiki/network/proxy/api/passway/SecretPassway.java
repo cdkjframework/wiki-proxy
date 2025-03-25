@@ -1,5 +1,6 @@
 package com.framewiki.network.proxy.api.passway;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.IBelongControl;
 import com.framewiki.network.proxy.api.secret.ISecret;
 import com.framewiki.network.proxy.channel.impl.LengthChannelBase;
@@ -7,7 +8,7 @@ import com.framewiki.network.proxy.executor.FrameExecutor;
 import com.framewiki.network.proxy.nio.impl.NioHallows;
 import com.framewiki.network.proxy.util.ToolsUtils;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,8 +28,12 @@ import java.util.Objects;
  * @Version: 1.0
  */
 @Data
-@Slf4j
+
 public class SecretPassway implements Runnable {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(SecretPassway.class);
 
 	/**
 	 * 密钥

@@ -1,6 +1,8 @@
 package com.framewiki.network.proxy.api.passway;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.IBelongControl;
+import com.framewiki.network.proxy.api.socket.part.SimpleSocketPart;
 import com.framewiki.network.proxy.executor.FrameExecutor;
 import com.framewiki.network.proxy.nio.NioProcessed;
 import com.framewiki.network.proxy.nio.impl.NioHallows;
@@ -8,7 +10,7 @@ import com.framewiki.network.proxy.util.ToolsUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,8 +30,12 @@ import java.util.Objects;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class SimplePassway implements Runnable, NioProcessed {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(SimplePassway.class);
 
 	/**
 	 * 是否有效

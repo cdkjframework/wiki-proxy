@@ -1,5 +1,6 @@
 package com.framewiki.proxy.client.core.side.client.handler.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.model.InteractiveModel;
 import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
 import com.framewiki.network.proxy.model.interactive.ServerWaitModel;

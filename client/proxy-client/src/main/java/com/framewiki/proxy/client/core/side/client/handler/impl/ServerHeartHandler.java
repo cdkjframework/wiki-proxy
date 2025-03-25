@@ -1,11 +1,13 @@
 package com.framewiki.proxy.client.core.side.client.handler.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.model.InteractiveModel;
 import com.framewiki.network.proxy.model.enums.FrameResultEnum;
 import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
+import com.framewiki.proxy.client.core.side.client.config.impl.SecretInteractiveClientConfig;
 import com.framewiki.proxy.client.core.side.client.handler.IClientHandler;
-import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * @ProjectName: wiki-proxy
@@ -16,8 +18,12 @@ import lombok.extern.slf4j.Slf4j;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class ServerHeartHandler implements IClientHandler<InteractiveModel, InteractiveModel> {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(ServerHeartHandler.class);
 
 	/**
 	 * 心跳检测

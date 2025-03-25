@@ -36,7 +36,7 @@
 
     <build>
         <defaultGoal>compile</defaultGoal>
-        <finalName>server-web</finalName>
+        <finalName>wiki-proxy-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -40,7 +40,7 @@ public class ProxyAutoConfiguration {
 	 */
 	@Bean(initMethod = "start")
 	@ConditionalOnMissingBean
-	public WikiProxyClient nettySocketServer() {
+	public WikiProxyClient nettyWikiProxyClient() {
 		return new WikiProxyClient(proxyConfig);
 	}
 }

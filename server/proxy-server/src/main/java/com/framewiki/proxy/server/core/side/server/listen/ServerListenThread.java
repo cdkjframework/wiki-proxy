@@ -1,6 +1,8 @@
 package com.framewiki.proxy.server.core.side.server.listen;
 
 import com.cdkjframework.exceptions.GlobalRuntimeException;
+import com.cdkjframework.util.log.LogUtils;
+import com.framewiki.proxy.server.core.side.server.listen.config.impl.SimpleListenServerConfig;
 import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket;
 import com.framewiki.network.proxy.api.IBelongControl;
 import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
@@ -11,7 +13,7 @@ import com.framewiki.network.proxy.nio.impl.NioHallows;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.config.ListenServerConfig;
 import com.framewiki.network.proxy.util.AssertUtils;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -31,8 +33,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public final class ServerListenThread implements Runnable, NioProcessed, IBelongControl, ServerListen {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(ServerListenThread.class);
 
 	/**
 	 * 配置
@@ -99,7 +105,7 @@ public final class ServerListenThread implements Runnable, NioProcessed, IBelong
 				Socket listenSocket = this.listenServerSocket.accept();
 				this.procMethod(listenSocket);
 			} catch (Exception e) {
-				log.warn("监听服务[" + this.getListenPort() + "]服务异常", e);
+				log.warn(String.format("监听服务[" + this.getListenPort() + "]服务异常", e));
 				this.cancel();
 			}
 		}
@@ -123,7 +129,7 @@ public final class ServerListenThread implements Runnable, NioProcessed, IBelong
 				this.procMethod(accept.socket());
 			}
 		} catch (IOException e) {
-			log.warn("监听服务[" + this.getListenPort() + "]服务异常", e);
+			log.warn(String.format("监听服务[" + this.getListenPort() + "]服务异常", e));
 			this.cancel();
 		}
 	}

@@ -1,13 +1,15 @@
 package com.framewiki.proxy.server.core.side.server.listen.config.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.channel.impl.SecretInteractiveChannelBase;
 import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
 import com.framewiki.network.proxy.model.InteractiveModel;
 import com.framewiki.network.proxy.util.AesUtils;
+import com.framewiki.proxy.server.core.side.server.listen.control.impl.ControlSocket;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.net.Socket;
@@ -22,11 +24,15 @@ import java.security.Key;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 public class SecretSimpleListenServerConfig extends SimpleListenServerConfig {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(SecretSimpleListenServerConfig.class);
 
 	/**
 	 * 交互加密密钥

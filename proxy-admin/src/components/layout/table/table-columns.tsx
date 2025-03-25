@@ -11,6 +11,10 @@ export interface TableColumns<T = any> {
    */
   type?: string,
   /**
+   * 位置
+   */
+  slot?: string,
+  /**
    * 名称
    */
   label: string,

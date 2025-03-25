@@ -1,12 +1,13 @@
 package com.framewiki.network.proxy.api.socket.part;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.IBelongControl;
 import com.framewiki.network.proxy.api.IHttpRouting;
 import com.framewiki.network.proxy.api.passway.SimplePassway;
 import com.framewiki.network.proxy.model.HttpRoute;
 import com.framewiki.network.proxy.util.AssertUtils;
 import com.framewiki.network.proxy.util.ToolsUtils;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -25,8 +26,12 @@ import java.nio.charset.StandardCharsets;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class HttpRouteSocketPart extends SimpleSocketPart {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(HttpRouteSocketPart.class);
 
 	/**
 	 * http头字符集

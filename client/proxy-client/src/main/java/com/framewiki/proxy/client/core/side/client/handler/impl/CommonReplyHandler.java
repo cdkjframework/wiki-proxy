@@ -1,12 +1,14 @@
 package com.framewiki.proxy.client.core.side.client.handler.impl;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.model.InteractiveModel;
 import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
+import com.framewiki.proxy.client.core.side.client.adapter.impl.InteractiveSimpleClientAdapter;
 import com.framewiki.proxy.client.core.side.client.handler.IClientHandler;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.Objects;
 
@@ -19,8 +21,13 @@ import java.util.Objects;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class CommonReplyHandler implements IClientHandler<InteractiveModel, InteractiveModel> {
+
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(CommonReplyHandler.class);
 
 	/**
 	 * 单例

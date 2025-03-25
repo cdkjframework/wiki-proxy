@@ -1,8 +1,10 @@
 package com.framewiki.network.proxy.util;
 
+import com.cdkjframework.util.log.LogUtils;
+import com.framewiki.network.proxy.api.socket.part.HttpRouteSocketPart;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -20,9 +22,13 @@ import java.util.Random;
  * @Date: 2025/1/2 13:59
  * @Version: 1.0
  */
-@Slf4j
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Md5Signature {
+	/**
+	 * 日志
+	 */
+	private static final LogUtils log = LogUtils.getLogger(Md5Signature.class);
 
 	/**
 	 * 默认字符集

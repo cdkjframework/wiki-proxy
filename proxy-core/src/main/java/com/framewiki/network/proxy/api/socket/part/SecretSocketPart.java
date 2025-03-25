@@ -1,12 +1,14 @@
 package com.framewiki.network.proxy.api.socket.part;
 
+import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.IBelongControl;
 import com.framewiki.network.proxy.api.passway.SecretPassway;
 import com.framewiki.network.proxy.api.secret.ISecret;
+import com.framewiki.network.proxy.model.FrameResultModel;
 import com.framewiki.network.proxy.util.AssertUtils;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+
 
 import java.io.IOException;
 import java.net.Socket;
@@ -21,8 +23,12 @@ import java.util.concurrent.CountDownLatch;
  * @Date: 2024/12/30 17:10
  * @Version: 1.0
  */
-@Slf4j
+
 public class SecretSocketPart extends BaseSocketPart implements IBelongControl {
+	/**
+	 * 日志
+	 */
+	private final LogUtils log = LogUtils.getLogger(FrameResultModel.class);
 
 	/**
 	 * 停止锁

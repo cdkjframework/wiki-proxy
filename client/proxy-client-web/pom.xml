@@ -37,7 +37,7 @@
 
     <build>
         <defaultGoal>compile</defaultGoal>
-        <finalName>frameWiKi-client-web</finalName>
+        <finalName>wiKi-proxy-client</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -69,6 +69,20 @@
             }}
           </template>
         </el-table-column>
+        <!--自定义插槽-->
+        <el-table-column
+            v-else-if="item.type === 'slot'"
+            :width="item.width"
+            :align="item.align"
+            :key="item.key"
+            :label="item.label">
+          <template #default="scope">
+            <slot
+                :name="item.slot"
+                v-bind="{ scope }"
+            ></slot>
+          </template>
+        </el-table-column>
         <el-table-column
             v-else-if="item.type === 'text'"
             :align="item.align"
