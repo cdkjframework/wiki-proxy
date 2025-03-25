@@ -1,0 +1,6 @@
+server:
+  port: 6666
+
+spring:
+  application:
+    name: wiki-proxy-server
