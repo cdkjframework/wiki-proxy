@@ -1,11 +1,11 @@
 #指定以 openjdk:17-jdk-oracle 为基础镜像，来构建此镜像，可以理解为运行的需要基础环境
 FROM openjdk:17-jdk-oracle
 #创建目录
-RUN mkdir -p /user/web
-RUN mkdir -p /user/web/wiki-proxy
-RUN mkdir -p /user/web/wiki-proxy/server
+RUN mkdir -p /usr/web
+RUN mkdir -p /usr/web/wiki-proxy
+RUN mkdir -p /usr/web/wiki-proxy/server
 #指定容器的工作目录
-ENV jar_file /user/web/wiki-proxy/server
+ENV jar_file /usr/web/wiki-proxy/server/
 #添加时区指向
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone

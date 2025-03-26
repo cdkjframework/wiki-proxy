@@ -1,6 +1,6 @@
 #vi stopAndRemoveContain.sh
 #!/bin/bash
-contain_name=wiKi-proxy-server
+contain_name=wiki-proxy-server
 #停止容器
 docker stop ${contain_name}
 #删除容器

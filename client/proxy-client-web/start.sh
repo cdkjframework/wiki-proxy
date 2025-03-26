@@ -4,7 +4,7 @@ echo "开始构建"
 #分别输入 容器名称 和要构建的 版本号 eg test 111 生成版本号为 test:111
 #contain_name=test
 #version=1
-contain_name=wiKi-proxy-client
+contain_name=wiki-proxy-client
 read -p "Please enter your contain name and version eg : v1.0: " version
 echo "contain name and version is [${contain_name}:${version}]"
 #输入要构建的端口号 或者自定义
@@ -14,7 +14,7 @@ echo "you input server port is [${server_port}]"
 #取消自定义命令
 #contain_name=demo
 docker rmi ${contain_name}:${version}
-docker buildx build -t  ${contain_name}:${version} .
+docker build -t  ${contain_name}:${version} .
 #停用之前的服务
 docker stop ${contain_name}
 docker rm ${contain_name}
