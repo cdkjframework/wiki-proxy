@@ -6,6 +6,10 @@ spring:
     name: wiki-proxy-client
   proxy:
     client:
+      # 服务端ip
+      service-ip: 127.0.0.1
+      # 服务端端口
+      service-port: 10010
       ip:
         - 127.0.0.1 # 目标代理ip
       dest-port:    # 目标代理端口

@@ -17,7 +17,7 @@
 
 # 1、简介
 
-维基代理（wiki-proxy）是一个基于Netty的、开源的java内网穿透项目。遵循MIT许可，因此您可以对它进行复制、修改、传播并用于任何个人或商业行为。
+<p style="text-indent: 2em;">维基代理（wiki-proxy）是一个基于Netty的、开源的java内网穿透项目。遵循MIT许可，因此您可以对它进行复制、修改、传播并用于任何个人或商业行为。</p>
 
 # 2、项目结构
 
@@ -51,10 +51,12 @@ spring:
     name: wiki-proxy-server
   proxy:
     server:
+      # 服务端（TCP）端口
+      service-port: 10010
       # 暴露端口 可以为多个
       port:
         - 443
-      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      #  证书存放路径
       ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
       # 证书密码
       ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
@@ -74,7 +76,7 @@ spring:
 
 > com.framewiki.proxy.server.ProxyServerApplication
 
-## 3.4  修改客户端配置文件
+## 3.4 修改客户端配置文件
 
 ``` yml
 spring:
@@ -82,13 +84,17 @@ spring:
     name: wiki-proxy-client
   proxy:
     client:
+      # 服务端ip
+      service-ip: 127.0.0.1
+      # 服务端 (TCP) 端口
+      service-port: 10010
       ip:
         - 127.0.0.1 # 目标代理ip
       dest-port:    # 目标代理端口
         - 50501
       port:
         - 443 # 服务端暴露端口
-      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      #  证书存放路径
       ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
       # 证书密码
       ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
@@ -98,9 +104,9 @@ spring:
       protocol: TLSv1.2
       # 算法 默认为 sunx509
       algorithm: sunx509
-      # 交互密钥 AES 需要与客户端一致
+      # 交互密钥 AES 需要与服务端一致
       aes-key: 8AUWlb+IWD+Fhbs0xnXCCg==
-      # 交互签名 key 需要与客户端一致
+      # 交互签名 key 需要与服务端一致
       token-key: tokenKey
 ```
 
@@ -108,7 +114,78 @@ spring:
 
 > com.framewiki.proxy.client.ProxyClientApplication
 
-# 4、部署方式
+# 4、部署
+
+<p style="text-indent: 2em;">先将项目构建好jar包(构建方式如下图)、也可下载发布的jar包，然后上传至服务器指定目录下。</p>
+<img alt="wiki-proxy-build" src="assets/developer/wiki-proxy-build.png"/>
+
+## 4.1 部署服务端
+
+<p style="text-indent: 2em;">先将wiki-proxy-server.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/server 目录下。</p>
+
+### 4.1.1 构建Docker镜像
+
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/server目录下</p>
+
+```shell
+cd /user/web/wiki-proxy/server
+
+```
+
+<p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
+
+```shell
+docker build -t wiki-proxy-server .
+
+```
+
+### 4.1.2 运行Docker镜像
+
+```shell
+./start.sh
+
+```
+
+### 4.1.2 停止Docker镜像
+
+```shell
+./stop.sh
+
+```
+
+## 4.2 部署客户端
+
+<p style="text-indent: 2em;">先将wiki-proxy-client.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/client 目录下。</p>
+
+### 4.2.1 构建Docker镜像
+
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/client 目录下</p>
+
+```shell
+cd /user/web/wiki-proxy/client
+
+```
+
+<p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
+
+```shell
+docker build -t wiki-proxy-client .
+
+```
+
+### 4.2.2 运行Docker镜像
+
+```shell
+./start.sh
+
+```
+
+### 4.2.2 停止Docker镜像
+
+```shell
+./stop.sh
+
+```
 
 # 5、代理示意图
 

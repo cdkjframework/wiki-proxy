@@ -6,6 +6,8 @@ spring:
     name: wiki-proxy-server
   proxy:
     server:
+      # 服务端（TCP）端口
+      service-port: 10010
       # 暴露端口 可以为多个
       port:
         - 443

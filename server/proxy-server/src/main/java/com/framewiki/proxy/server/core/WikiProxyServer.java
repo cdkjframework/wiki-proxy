@@ -35,149 +35,153 @@ import static com.framewiki.network.proxy.common.CommonConstants.ListenDest;
  */
 public class WikiProxyServer {
 
-	/**
-	 * log
-	 */
-	private final LogUtils logUtils = LogUtils.getLogger(WikiProxyServer.class);
+  /**
+   * log
+   */
+  private final LogUtils logUtils = LogUtils.getLogger(WikiProxyServer.class);
 
-	/**
-	 * configuration
-	 */
-	private final ProxyConfig proxyConfig;
-	/**
-	 * Create a server socket
-	 */
-	public ICreateServerSocket createServerSocket;
+  /**
+   * configuration
+   */
+  private final ProxyConfig proxyConfig;
+  /**
+   * Create a server socket
+   */
+  public ICreateServerSocket createServerSocket;
 
-	/**
-	 * constructor
-	 */
-	public WikiProxyServer(ProxyConfig proxyConfig) {
-		this.proxyConfig = proxyConfig;
-	}
+  /**
+   * constructor
+   */
+  public WikiProxyServer(ProxyConfig proxyConfig) {
+    this.proxyConfig = proxyConfig;
+  }
 
-	/**
-	 * Thread startup
-	 */
-	public void start() throws Exception {
-		// Your p12 format certificate path
-		final String sslKeyStorePath = proxyConfig.getSslKeyStorePath();
-		// Your certificate password
-		final String sslKeyStorePassword = proxyConfig.getSslKeyStorePassword();
-		// If HTTPS protocol support is required, fill in sslKeyStorePath, sslKeyStorePassword, or define them in the environment variable
-		if (StringUtils.isNoneBlank(sslKeyStorePath, sslKeyStorePassword)) {
-			logUtils.info("loading certificate！");
-			createServerSocket = listenPort -> {
-				KeyStore keystore = KeyStore.getInstance(proxyConfig.getSslKeyStoreType());
-				keystore.load(Files.newInputStream(Paths.get(sslKeyStorePath)), sslKeyStorePassword.toCharArray());
-				KeyManagerFactory keyFactory = KeyManagerFactory.getInstance(proxyConfig.getAlgorithm());
-				keyFactory.init(keystore, sslKeyStorePassword.toCharArray());
+  /**
+   * Thread startup
+   */
+  public void start() throws Exception {
+    // Your p12 format certificate path
+    final String sslKeyStorePath = proxyConfig.getSslKeyStorePath();
+    // Your certificate password
+    final String sslKeyStorePassword = proxyConfig.getSslKeyStorePassword();
+    // If HTTPS protocol support is required, fill in sslKeyStorePath, sslKeyStorePassword, or define them in the environment variable
+    if (StringUtils.isNoneBlank(sslKeyStorePath, sslKeyStorePassword)) {
+      logUtils.info("loading certificate！");
+      createServerSocket = listenPort -> {
+        KeyStore keystore = KeyStore.getInstance(proxyConfig.getSslKeyStoreType());
+        keystore.load(Files.newInputStream(Paths.get(sslKeyStorePath)), sslKeyStorePassword.toCharArray());
+        KeyManagerFactory keyFactory = KeyManagerFactory.getInstance(proxyConfig.getAlgorithm());
+        keyFactory.init(keystore, sslKeyStorePassword.toCharArray());
 
-				SSLContext ctx = SSLContext.getInstance(proxyConfig.getProtocol());
-				ctx.init(keyFactory.getKeyManagers(), null, null);
-				SSLServerSocketFactory serverSocketFactory = ctx.getServerSocketFactory();
-				return serverSocketFactory.createServerSocket(listenPort);
-			};
-		}
+        SSLContext ctx = SSLContext.getInstance(proxyConfig.getProtocol());
+        ctx.init(keyFactory.getKeyManagers(), null, null);
+        SSLServerSocketFactory serverSocketFactory = ctx.getServerSocketFactory();
+        return serverSocketFactory.createServerSocket(listenPort);
+      };
+    }
 
-		int size = proxyConfig.getPort().size();
-		// Set constant information
-		for (int i = IntegerConsts.ZERO; i < size; i++) {
-			int listenPort = proxyConfig.getPort().get(i);
-			int destPort = proxyConfig.getDestPort().get(i);
-			String destIp = proxyConfig.getIp().get(i);
-			CommonConstants.listenDestArray.add(ListenDest.of(listenPort, destIp, destPort));
-		}
+    int size = proxyConfig.getPort().size();
+    // Set constant information
+    for (int i = IntegerConsts.ZERO; i < size; i++) {
+      int listenPort = proxyConfig.getPort().get(i);
+      int destPort = proxyConfig.getDestPort().get(i);
+      String destIp = proxyConfig.getIp().get(i);
+      CommonConstants.listenDestArray.add(ListenDest.of(listenPort, destIp, destPort));
+    }
 
-		// Interactive encryption, also known as interactive verification
-		secret();
-	}
+    if (proxyConfig.getServicePort() != null) {
+      CommonConstants.servicePort = proxyConfig.getServicePort();
+    }
+
+    // Interactive encryption, also known as interactive verification
+    secret();
+  }
 
 
-	/**
-	 * Multi client, control channel encryption
-	 */
-	public void multiControlSecret() throws Exception {
-		// Set up and start the client service thread
-		SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
-		// Set interactive AES key and signature key
-		config.setBaseAesKey(CommonConstants.aesKey);
-		config.setTokenKey(CommonConstants.tokenKey);
-		new ClientServiceThread(config).start();
+  /**
+   * Multi client, control channel encryption
+   */
+  public void multiControlSecret() throws Exception {
+    // Set up and start the client service thread
+    SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
+    // Set interactive AES key and signature key
+    config.setBaseAesKey(CommonConstants.aesKey);
+    config.setTokenKey(CommonConstants.tokenKey);
+    new ClientServiceThread(config).start();
 
-		for (ListenDest model : CommonConstants.listenDestArray) {
-			// Set up and start a penetration port
-			SecretSimpleListenServerConfig baseListenConfig = new SecretSimpleListenServerConfig(model.listenPort);
-			// Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
-			baseListenConfig.setBaseAesKey(CommonConstants.aesKey);
-			baseListenConfig.setTokenKey(CommonConstants.tokenKey);
-			baseListenConfig.setCreateServerSocket(createServerSocket);
+    for (ListenDest model : CommonConstants.listenDestArray) {
+      // Set up and start a penetration port
+      SecretSimpleListenServerConfig baseListenConfig = new SecretSimpleListenServerConfig(model.listenPort);
+      // Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
+      baseListenConfig.setBaseAesKey(CommonConstants.aesKey);
+      baseListenConfig.setTokenKey(CommonConstants.tokenKey);
+      baseListenConfig.setCreateServerSocket(createServerSocket);
 
-			MultControlListenServerConfig listenConfig = new MultControlListenServerConfig(baseListenConfig);
+      MultControlListenServerConfig listenConfig = new MultControlListenServerConfig(baseListenConfig);
 
-			ListenServerControl.createNewListenServer(listenConfig);
-		}
-	}
+      ListenServerControl.createNewListenServer(listenConfig);
+    }
+  }
 
-	/**
-	 * Encrypt interactions and tunnels
-	 */
-	public void secretAll() throws Exception {
-		// Set up and start the client service thread
-		SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
-		// Set interactive AES key and signature key
-		config.setBaseAesKey(CommonConstants.aesKey);
-		config.setTokenKey(CommonConstants.tokenKey);
-		new ClientServiceThread(config).start();
+  /**
+   * Encrypt interactions and tunnels
+   */
+  public void secretAll() throws Exception {
+    // Set up and start the client service thread
+    SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
+    // Set interactive AES key and signature key
+    config.setBaseAesKey(CommonConstants.aesKey);
+    config.setTokenKey(CommonConstants.tokenKey);
+    new ClientServiceThread(config).start();
 
-		for (ListenDest model : CommonConstants.listenDestArray) {
-			AllSecretSimpleListenServerConfig listenConfig = new AllSecretSimpleListenServerConfig(model.listenPort);
-			// Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
-			listenConfig.setBaseAesKey(CommonConstants.aesKey);
-			listenConfig.setTokenKey(CommonConstants.tokenKey);
-			// Set tunnel key
-			listenConfig.setBasePasswayKey(CommonConstants.aesKey);
-			listenConfig.setCreateServerSocket(createServerSocket);
-			ListenServerControl.createNewListenServer(listenConfig);
-		}
-	}
+    for (ListenDest model : CommonConstants.listenDestArray) {
+      AllSecretSimpleListenServerConfig listenConfig = new AllSecretSimpleListenServerConfig(model.listenPort);
+      // Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
+      listenConfig.setBaseAesKey(CommonConstants.aesKey);
+      listenConfig.setTokenKey(CommonConstants.tokenKey);
+      // Set tunnel key
+      listenConfig.setBasePasswayKey(CommonConstants.aesKey);
+      listenConfig.setCreateServerSocket(createServerSocket);
+      ListenServerControl.createNewListenServer(listenConfig);
+    }
+  }
 
-	/**
-	 * Interactive encryption, also known as interactive verification
-	 */
-	public void secret() throws Exception {
-		// Set up and start the client service thread
-		SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
-		// Set interactive AES key and signature key
-		config.setBaseAesKey(CommonConstants.aesKey);
-		config.setTokenKey(CommonConstants.tokenKey);
-		new ClientServiceThread(config).start();
+  /**
+   * Interactive encryption, also known as interactive verification
+   */
+  public void secret() throws Exception {
+    // Set up and start the client service thread
+    SecretSimpleClientServiceConfig config = new SecretSimpleClientServiceConfig(CommonConstants.servicePort);
+    // Set interactive AES key and signature key
+    config.setBaseAesKey(CommonConstants.aesKey);
+    config.setTokenKey(CommonConstants.tokenKey);
+    new ClientServiceThread(config).start();
 
-		for (ListenDest model : CommonConstants.listenDestArray) {
-			logUtils.info("Start service penetration port：" + model.listenPort);
-			// Set up and start a penetration port
-			SecretSimpleListenServerConfig listenConfig = new SecretSimpleListenServerConfig(model.listenPort);
-			// Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
-			listenConfig.setBaseAesKey(CommonConstants.aesKey);
-			listenConfig.setTokenKey(CommonConstants.tokenKey);
-			listenConfig.setCreateServerSocket(createServerSocket);
-			ListenServerControl.createNewListenServer(listenConfig);
-		}
-	}
+    for (ListenDest model : CommonConstants.listenDestArray) {
+      logUtils.info("Start service penetration port：" + model.listenPort);
+      // Set up and start a penetration port
+      SecretSimpleListenServerConfig listenConfig = new SecretSimpleListenServerConfig(model.listenPort);
+      // Set the interactive AES key and signature key, using the same key as the client service. Different keys can be set as needed
+      listenConfig.setBaseAesKey(CommonConstants.aesKey);
+      listenConfig.setTokenKey(CommonConstants.tokenKey);
+      listenConfig.setCreateServerSocket(createServerSocket);
+      ListenServerControl.createNewListenServer(listenConfig);
+    }
+  }
 
-	/**
-	 * No encryption, no verification
-	 */
-	public void simple() throws Exception {
-		// Set up and start the client service thread
-		SimpleClientServiceConfig config = new SimpleClientServiceConfig(CommonConstants.servicePort);
-		new ClientServiceThread(config).start();
+  /**
+   * No encryption, no verification
+   */
+  public void simple() throws Exception {
+    // Set up and start the client service thread
+    SimpleClientServiceConfig config = new SimpleClientServiceConfig(CommonConstants.servicePort);
+    new ClientServiceThread(config).start();
 
-		for (ListenDest model : CommonConstants.listenDestArray) {
-			// Set up and start a penetration port
-			SimpleListenServerConfig listenConfig = new SimpleListenServerConfig(model.listenPort);
-			listenConfig.setCreateServerSocket(createServerSocket);
-			ListenServerControl.createNewListenServer(listenConfig);
-		}
-	}
+    for (ListenDest model : CommonConstants.listenDestArray) {
+      // Set up and start a penetration port
+      SimpleListenServerConfig listenConfig = new SimpleListenServerConfig(model.listenPort);
+      listenConfig.setCreateServerSocket(createServerSocket);
+      ListenServerControl.createNewListenServer(listenConfig);
+    }
+  }
 }

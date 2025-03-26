@@ -3,7 +3,6 @@ package com.framewiki.proxy.client.core.side.client.heart.impl;
 import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.executor.FrameExecutor;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
-import com.framewiki.proxy.client.core.side.client.handler.impl.ServerWaitClientHandler;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;
 import lombok.Getter;
 import lombok.Setter;
@@ -143,7 +142,7 @@ public class ClientHeartThread implements IClientHeartThread, Runnable {
 
     if (this.failCount >= this.tryRecipientCount) {
       log.error("尝试重新连接 {} 超过最大次数，关闭客户端", clientControlThread.getListenServerPort());
-      clientControlThread.cancell();
+      clientControlThread.cancel();
       this.cancel();
     }
   }
