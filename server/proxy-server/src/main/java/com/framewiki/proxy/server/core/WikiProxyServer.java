@@ -38,7 +38,7 @@ public class WikiProxyServer {
 	/**
 	 * log
 	 */
-	private LogUtils logUtils = LogUtils.getLogger(WikiProxyServer.class);
+	private final LogUtils logUtils = LogUtils.getLogger(WikiProxyServer.class);
 
 	/**
 	 * configuration

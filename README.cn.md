@@ -35,9 +35,84 @@
 
 # 3、运行
 
+## 3.1 生成证书，使用 keytool 工具生成测试证书如下所示（建议使用Let's Encrypt生成正式证书）
+
+``` shell
+keytool -genkey -alias wiki-proxy -keyalg RSA -keysize 2048 -validity 3650 -keypass wiki-proxy@SaFePwd2025! -storepass wiki-proxy@SaFePwd2025! -keystore "./wiki-proxy.jks"
+```
+
+<img alt="keytool" src="assets/developer/wiki-proxy.png"/>
+
+## 3.2 修改服务端配置文件
+
+``` yml
+spring:
+  application:
+    name: wiki-proxy-server
+  proxy:
+    server:
+      # 暴露端口 可以为多个
+      port:
+        - 443
+      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      # 证书密码
+      ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
+      # 证书类型
+      ssl-key-store-type: PKCS12
+      # 协议 默认为 TLSv1.2 版本
+      protocol: TLSv1.2
+      # 算法 默认为 sunx509
+      algorithm: sunx509
+      # 交互密钥 AES 需要与客户端一致
+      aes-key: 8AUWlb+IWD+Fhbs0xnXCCg==
+      # 交互签名 key 需要与客户端一致
+      token-key: tokenKey
+```
+
+## 3.3 服务端启动（Spring Boot 项目）
+
+> com.framewiki.proxy.server.ProxyServerApplication
+
+## 3.4  修改客户端配置文件
+
+``` yml
+spring:
+  application:
+    name: wiki-proxy-client
+  proxy:
+    client:
+      ip:
+        - 127.0.0.1 # 目标代理ip
+      dest-port:    # 目标代理端口
+        - 50501
+      port:
+        - 443 # 服务端暴露端口
+      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      # 证书密码
+      ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
+      # 证书类型
+      ssl-key-store-type: PKCS12
+      # 协议 默认为 TLSv1.2 版本
+      protocol: TLSv1.2
+      # 算法 默认为 sunx509
+      algorithm: sunx509
+      # 交互密钥 AES 需要与客户端一致
+      aes-key: 8AUWlb+IWD+Fhbs0xnXCCg==
+      # 交互签名 key 需要与客户端一致
+      token-key: tokenKey
+```
+
+## 3.5 客户端启动（Spring Boot 项目）
+
+> com.framewiki.proxy.client.ProxyClientApplication
+
 # 4、部署方式
 
 # 5、代理示意图
+
+<img alt="keytool" src="assets/developer/wiki-proxy-list.png"/>
 
 # 6、联系我们
 
@@ -48,5 +123,5 @@
 # 7、参与贡献
 
 <a href="https://gitee.com/cdkjframework" target="_blank">
-<img src="assets/developer/wiki.png" width="11%"/>
+<img alt="维基框架" src="assets/developer/wiki.png" width="110"/>
 </a>

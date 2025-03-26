@@ -10,7 +10,7 @@ RUN mkdir -p /user/web
 RUN mkdir -p /user/web/wiki-proxy
 RUN mkdir -p /user/web/wiki-proxy/config
 WORKDIR  /user/web/wiki-proxy
-COPY ./target/wiki-proxy-server.jar /user/web/wiki-proxy/wiki-proxy-server.jar
+COPY ./target/wiKi-proxy-client.jar /user/web/wiki-proxy/wiKi-proxy-client.jar
 COPY ./src/main/resources/application.yml /user/wiki-proxy/config/application.yml
 #VOLUME ["/user/web/wiki-proxy"]
-ENTRYPOINT ["java","-jar","wiki-proxy-server.jar","config=./config/application.yml"]
+ENTRYPOINT ["java","-jar","wiKi-proxy-client.jar","config=./config/application.yml"]

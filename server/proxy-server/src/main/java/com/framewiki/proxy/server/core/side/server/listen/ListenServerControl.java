@@ -105,7 +105,7 @@ public final class ListenServerControl {
    * 创建新的监听服务
    *
    * @param config 配置
-   * @return
+   * @return 返回新建的监听服务
    */
   public static ServerListenThread createNewListenServer(ListenServerConfig config) {
     ServerListenThread serverListenThread;
@@ -118,6 +118,7 @@ public final class ListenServerControl {
     // 若没有报错则说明没有监听该端口的线程，即不可正常使用原有端口，所以先进行强行remove，再进行add
     ListenServerControl.remove(config.getListenPort());
     ListenServerControl.add(serverListenThread);
+    // 返回启动监听服务
     return serverListenThread;
   }
 }
