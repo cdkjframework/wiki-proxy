@@ -29,7 +29,7 @@ public enum InteractiveTypeEnum {
 	/**
 	 * 心跳回复
 	 */
-	HEART_TEST_REPLY("心跳测试回复"),
+	HEART_TEST_REPLY("心跳回复"),
 	/**
 	 * 服务端等待客户端建立连接
 	 */

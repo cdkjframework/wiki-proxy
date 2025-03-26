@@ -8,6 +8,7 @@ import com.framewiki.proxy.client.core.side.client.config.impl.AllSecretInteract
 import com.framewiki.proxy.client.core.side.client.config.impl.HttpRouteClientConfig;
 import com.framewiki.proxy.client.core.side.client.config.impl.InteractiveClientConfig;
 import com.framewiki.proxy.client.core.side.client.config.impl.SecretInteractiveClientConfig;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -156,6 +157,12 @@ public class WikiProxyClient {
    * @throws Exception 异常信息
    */
   private void buildListenDest() throws Exception {
+    if (StringUtils.isNotEmpty(proxyConfig.getServiceIp())) {
+      CommonConstants.serviceIp = proxyConfig.getServiceIp();
+    }
+    if (proxyConfig.getServicePort() != null) {
+      CommonConstants.servicePort = proxyConfig.getServicePort();
+    }
     List<Integer> destPort = proxyConfig.getDestPort();
     List<Integer> ports = proxyConfig.getPort();
     List<String> ips = proxyConfig.getIp();

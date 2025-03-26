@@ -4,3 +4,24 @@ server:
 spring:
   application:
     name: wiki-proxy-server
+  proxy:
+    server:
+      # 服务端（TCP）端口
+      service-port: 10010
+      # 暴露端口 可以为多个
+      port:
+        - 443
+      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      # 证书密码
+      ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
+      # 证书类型
+      ssl-key-store-type: PKCS12
+      # 协议 默认为 TLSv1.2 版本
+      protocol: TLSv1.2
+      # 算法 默认为 sunx509
+      algorithm: sunx509
+      # 交互密钥 AES 需要与客户端一致
+      aes-key: 8AUWlb+IWD+Fhbs0xnXCCg==
+      # 交互签名 key 需要与客户端一致
+      token-key: tokenKey

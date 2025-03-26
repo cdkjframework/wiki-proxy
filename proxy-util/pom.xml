@@ -21,6 +21,12 @@
     <dependency>
       <groupId>com.cdkjframework</groupId>
       <artifactId>cdkj-core</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>com.cdkjframework</groupId>
+          <artifactId>cdkj-redis</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>com.cdkjframework</groupId>

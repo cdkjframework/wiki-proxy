@@ -6,9 +6,27 @@ spring:
     name: wiki-proxy-client
   proxy:
     client:
+      # 服务端ip
+      service-ip: 127.0.0.1
+      # 服务端端口
+      service-port: 10010
       ip:
-        - 127.0.0.1
+        - 127.0.0.1 # 目标代理ip
+      dest-port:    # 目标代理端口
+        - 50501
       port:
-        - 8081
-      dest-port:
-        - 10010
+        - 443 # 服务端暴露端口
+      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
+      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      # 证书密码
+      ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
+      # 证书类型
+      ssl-key-store-type: PKCS12
+      # 协议 默认为 TLSv1.2 版本
+      protocol: TLSv1.2
+      # 算法 默认为 sunx509
+      algorithm: sunx509
+      # 交互密钥 AES 需要与客户端一致
+      aes-key: 8AUWlb+IWD+Fhbs0xnXCCg==
+      # 交互签名 key 需要与客户端一致
+      token-key: tokenKey

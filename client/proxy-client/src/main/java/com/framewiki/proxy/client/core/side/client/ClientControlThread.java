@@ -3,7 +3,6 @@ package com.framewiki.proxy.client.core.side.client;
 import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.network.proxy.api.IBelongControl;
 import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.nio.impl.NioHallows;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
 import com.framewiki.proxy.client.core.side.client.config.ClientConfig;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;
@@ -181,7 +180,7 @@ public final class ClientControlThread implements Runnable, IBelongControl {
   /**
    * 全部退出
    */
-  public void cancell() {
+  public void cancel() {
     if (this.cancelled) {
       return;
     }
