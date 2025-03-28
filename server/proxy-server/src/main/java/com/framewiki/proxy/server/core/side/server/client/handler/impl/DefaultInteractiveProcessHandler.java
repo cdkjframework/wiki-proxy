@@ -5,7 +5,7 @@ import com.framewiki.proxy.server.core.side.server.client.process.impl.ClientCon
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.handler
+ * @Package: com.framewiki.proxy.core.side.server.client.handler
  * @ClassName: DefaultInteractiveProcessHandler
  * @Description: 默认的接收处理handler
  * @Author: frank tiger

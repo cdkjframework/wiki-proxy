@@ -1,12 +1,11 @@
 package com.framewiki.proxy.server.core.side.server.listen.control.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.FrameResultEnum;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
-import com.framewiki.network.proxy.model.interactive.ServerWaitModel;
-import com.framewiki.proxy.server.core.side.server.client.handler.impl.InteractiveProcessHandler;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.FrameResultEnum;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
+import com.framewiki.proxy.core.model.interactive.ServerWaitModel;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListen;
 import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket;
 import com.framewiki.proxy.server.core.side.server.listen.recv.IRecvHandler;
@@ -20,7 +19,7 @@ import java.util.Objects;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: ControlSocket
  * @Description: 控制socket实例
  * @Author: frank tiger

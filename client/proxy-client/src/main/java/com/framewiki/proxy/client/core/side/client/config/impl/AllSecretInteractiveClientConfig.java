@@ -1,10 +1,10 @@
 package com.framewiki.proxy.client.core.side.client.config.impl;
 
-import com.framewiki.network.proxy.api.secret.impl.AesSecret;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.api.socket.part.SecretSocketPart;
+import com.framewiki.proxy.core.api.secret.impl.AesSecret;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.SecretSocketPart;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
-import com.framewiki.network.proxy.util.AesUtils;
+import com.framewiki.proxy.core.util.AesUtils;
 import lombok.Getter;
 import lombok.Setter;
 

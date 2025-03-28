@@ -1,9 +1,9 @@
 package com.framewiki.proxy.server.core.side.server.client.config;
 
 import com.framewiki.proxy.server.core.side.server.client.adapter.impl.DefaultReadAheadPassValueAdapter;
-import com.framewiki.network.proxy.channel.impl.InteractiveChannelBase;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.core.channel.impl.InteractiveChannelBase;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
 import com.framewiki.proxy.server.core.side.server.client.adapter.ClientServiceAdapter;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.config
+ * @Package: com.framewiki.proxy.core.side.server.client.config
  * @ClassName: SimpleClientServiceConfig
  * @Description: 简单交互的客户端服务配置
  * @Author: frank tiger

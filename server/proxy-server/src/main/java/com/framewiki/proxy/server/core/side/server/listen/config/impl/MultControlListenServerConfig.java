@@ -5,7 +5,7 @@ import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket;
 import com.framewiki.proxy.server.core.side.server.listen.control.impl.MultiControlSocket;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
 import com.framewiki.proxy.server.core.side.server.listen.config.ListenServerConfig;
 
 import java.net.ServerSocket;
@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: MultControlListenServerConfig
  * @Description: 多客户端；监听服务配置
  * @Author: frank tiger

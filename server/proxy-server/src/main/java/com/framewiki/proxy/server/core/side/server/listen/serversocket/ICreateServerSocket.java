@@ -4,7 +4,7 @@ import java.net.ServerSocket;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.serversocket
+ * @Package: com.framewiki.proxy.core.side.server.listen.serversocket
  * @ClassName: ICreateServerSocket
  * @Description: 创建服务端口接口
  * @Author: frank tiger

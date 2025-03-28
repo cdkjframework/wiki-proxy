@@ -1,0 +1,5 @@
+spring:
+  proxy:
+    server:
+      #  证书存放路径
+      ssl-key-store-path: /usr/web/wiki-proxy/server/wiki-proxy.jks

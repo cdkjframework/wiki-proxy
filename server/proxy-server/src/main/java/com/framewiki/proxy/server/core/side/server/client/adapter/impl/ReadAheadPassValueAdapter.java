@@ -1,8 +1,8 @@
 package com.framewiki.proxy.server.core.side.server.client.adapter.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.common.Optional;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.common.Optional;
 import com.framewiki.proxy.server.core.side.server.client.adapter.ClientServiceAdapter;
 import com.framewiki.proxy.server.core.side.server.client.config.IClientServiceConfig;
 import com.framewiki.proxy.server.core.side.server.client.handler.PassValueHandler;
@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.adapter
+ * @Package: com.framewiki.proxy.core.side.server.client.adapter
  * @ClassName: ReadAheadPassValueAdapter
  * @Description: 预读后处理适配器
  * @Author: frank tiger

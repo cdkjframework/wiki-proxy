@@ -123,9 +123,9 @@ spring:
 
 <p style="text-indent: 2em;">先将wiki-proxy-server.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/server 目录下。</p>
 
-### 4.1.1 构建Docker镜像
+### 4.1.1 构建并运行Docker镜像
 
-<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/server目录下</p>
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/server目录下（根据自己的服务器目录结构进行修改）</p>
 
 ```shell
 cd /user/web/wiki-proxy/server
@@ -134,14 +134,7 @@ cd /user/web/wiki-proxy/server
 
 <p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
 
-```shell
-docker build -t wiki-proxy-server .
-
-```
-
-### 4.1.2 运行Docker镜像
-
-```shell
+``` shell
 ./start.sh
 
 ```
@@ -157,9 +150,9 @@ docker build -t wiki-proxy-server .
 
 <p style="text-indent: 2em;">先将wiki-proxy-client.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/client 目录下。</p>
 
-### 4.2.1 构建Docker镜像
+### 4.2.1 构建并运行Docker镜像
 
-<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/client 目录下</p>
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/client 目录下（根据自己的服务器目录结构进行修改）</p>
 
 ```shell
 cd /user/web/wiki-proxy/client
@@ -167,13 +160,6 @@ cd /user/web/wiki-proxy/client
 ```
 
 <p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
-
-```shell
-docker build -t wiki-proxy-client .
-
-```
-
-### 4.2.2 运行Docker镜像
 
 ```shell
 ./start.sh

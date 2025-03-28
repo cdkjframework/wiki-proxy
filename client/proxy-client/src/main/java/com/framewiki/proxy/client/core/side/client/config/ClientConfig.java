@@ -1,7 +1,7 @@
 package com.framewiki.proxy.client.core.side.client.config;
 
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;

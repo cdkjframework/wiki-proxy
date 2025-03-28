@@ -1,23 +1,37 @@
-#指定以 openjdk:17-jdk-oracle 为基础镜像，来构建此镜像，可以理解为运行的需要基础环境
+# 使用官方OpenJDK镜像
 FROM openjdk:17-jdk-oracle
-#创建目录
-RUN mkdir -p /usr/web
-RUN mkdir -p /usr/web/wiki-proxy
-RUN mkdir -p /usr/web/wiki-proxy/server
-#指定容器的工作目录
-ENV jar_file /usr/web/wiki-proxy/server/
-#添加时区指向
-ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-#WORKDIR指令用于指定容器的一个目录， 容器启动时执行的命令会在该目录下执行。
-WORKDIR ${jar_file}
-#将当前文件夹下面 demo.jar 复制到容器对应目录下
-ENV jar_name wiki-proxy-server.jar
-ADD ${jar_name} ${jar_file}${jar_name}
-#jar文件端口 通过启动命令传入进来
-ENV server_port ${server_port}
-EXPOSE ${server_port}
-#容器启动时执行的命令
-CMD nohup java -jar \
--Xmx256m -Xmn256m  -Xss256k -XX:+HeapDumpOnOutOfMemoryError \
-${jar_file}${jar_name} --server.port=${server_port}
+
+# 定义构建参数（带默认值）
+ARG SERVER_PORT=6666
+ARG TCP_PORT=10010
+ARG JAR_NAME=wiki-proxy-server.jar
+ARG SPRING_PROFILE=test
+# 默认配置为test
+
+# 设置时区和工作目录的环境变量
+ENV TZ=Asia/Shanghai \
+    JAR_FILE=/usr/web/wiki-proxy/server/ \
+    SPRING_PROFILES_ACTIVE=${SPRING_PROFILE}
+
+# 创建目录（合并为单条RUN指令减少层数）
+RUN mkdir -p ${JAR_FILE} && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone
+
+# 设置工作目录
+WORKDIR ${JAR_FILE}
+
+# 复制JAR文件到容器指定目录
+COPY ${JAR_NAME} ${JAR_FILE}${JAR_NAME}
+COPY wiki-proxy.jks ${JAR_FILE}wiki-proxy.jks
+
+# 暴露端口（使用构建参数）
+EXPOSE ${SERVER_PORT}
+EXPOSE ${TCP_PORT}
+
+# 使用 sh -c 执行启动命令，确保环境变量得到解析
+ENTRYPOINT ["sh", "-c", "java -jar -Xmx256m -Xmn256m -Xss256k \
+    -XX:+HeapDumpOnOutOfMemoryError ${JAR_FILE}wiki-proxy-server.jar \
+    -Dspring.proxy.server.servicePort=${TCP_PORT} \
+    -Dserver.port=${SERVER_PORT} \
+    -Dspring.profiles.active=${SPRING_PROFILE}"]

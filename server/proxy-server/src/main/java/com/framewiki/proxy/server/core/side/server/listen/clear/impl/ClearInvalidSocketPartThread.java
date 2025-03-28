@@ -3,8 +3,7 @@ package com.framewiki.proxy.server.core.side.server.listen.clear.impl;
 import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
-import com.framewiki.network.proxy.executor.FrameExecutor;
-import com.framewiki.proxy.server.core.side.server.listen.config.impl.SecretSimpleListenServerConfig;
+import com.framewiki.proxy.core.executor.FrameExecutor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ import java.util.concurrent.ScheduledFuture;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen
+ * @Package: com.framewiki.proxy.core.side.server.listen
  * @ClassName: ClearInvalidSocketPartThread
  * @Description: 清理无效端口
  * @Author: frank tiger

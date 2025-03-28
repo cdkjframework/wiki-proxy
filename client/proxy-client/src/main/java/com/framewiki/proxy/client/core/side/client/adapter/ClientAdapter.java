@@ -1,7 +1,7 @@
 package com.framewiki.proxy.client.core.side.client.adapter;
 
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.interactive.ServerWaitModel;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.interactive.ServerWaitModel;
 
 import java.time.LocalDateTime;
 

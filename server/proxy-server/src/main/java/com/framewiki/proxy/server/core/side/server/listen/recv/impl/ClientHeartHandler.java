@@ -1,14 +1,14 @@
 package com.framewiki.proxy.server.core.side.server.listen.recv.impl;
 
 import com.framewiki.proxy.server.core.side.server.listen.recv.IRecvHandler;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.FrameResultEnum;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.FrameResultEnum;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.recv
+ * @Package: com.framewiki.proxy.core.side.server.listen.recv
  * @ClassName: ClientHeartHandler
  * @Description: 心跳检测
  * @Author: frank tiger

@@ -3,17 +3,17 @@ package com.framewiki.proxy.server.core.side.server.client.process.impl;
 import com.framewiki.proxy.server.core.side.server.client.process.IProcess;
 import com.framewiki.proxy.server.core.side.server.listen.ListenServerControl;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.common.CommonFormat;
-import com.framewiki.network.proxy.model.FrameResultModel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.FrameResultEnum;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
-import com.framewiki.network.proxy.model.interactive.ClientConnectModel;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.common.CommonFormat;
+import com.framewiki.proxy.core.model.FrameResultModel;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.FrameResultEnum;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
+import com.framewiki.proxy.core.model.interactive.ClientConnectModel;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.process
+ * @Package: com.framewiki.proxy.core.side.server.client.process
  * @ClassName: ClientConnectProcess
  * @Description: 请求建立隧道处理器
  * @Author: frank tiger

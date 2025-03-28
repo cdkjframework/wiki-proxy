@@ -4,7 +4,7 @@ import com.framewiki.proxy.server.core.side.server.listen.ServerListen;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.control
+ * @Package: com.framewiki.proxy.core.side.server.listen.control
  * @ClassName: IControlSocket
  * @Description: 控制端口接口
  * @Author: frank tiger

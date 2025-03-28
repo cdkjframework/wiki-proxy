@@ -1,7 +1,7 @@
 package com.framewiki.proxy.client.core.side.client.heart.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.executor.FrameExecutor;
+import com.framewiki.proxy.core.executor.FrameExecutor;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;
 import lombok.Getter;

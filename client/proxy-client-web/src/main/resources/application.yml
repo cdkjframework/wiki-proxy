@@ -2,12 +2,13 @@ server:
   port: 8888
 
 spring:
+  profile: test
   application:
     name: wiki-proxy-client
   proxy:
     client:
       # 服务端ip
-      service-ip: 127.0.0.1
+      service-ip: 10.10.0.94
       # 服务端端口
       service-port: 10010
       ip:
@@ -16,8 +17,8 @@ spring:
         - 50501
       port:
         - 443 # 服务端暴露端口
-      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
-      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      #  证书存放路径
+      ssl-key-store-path: "F:\\workspace\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
       # 证书密码
       ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
       # 证书类型

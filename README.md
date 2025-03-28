@@ -129,9 +129,9 @@ spring:
 
 <p style="text-indent: 2em;">First, upload the wiki-proxy-server. jar package, Dockerfile, start.sh, and stop.sh to the server/user/web/wiki proxy/server directory.</p>
 
-### 4.1.1 Building Docker Images
+### 4.1.1 Build and run Docker images
 
-<p style="text-indent: 2em;">Switch the working directory to the /user/web/wiki proxy/server directory</p>
+<p style="text-indent: 2em;">Switch the working directory to the/user/web/wiki-proxy/server directory (modify according to your own server directory structure)</p>
 
 ```shell
 cd /user/web/wiki-proxy/server
@@ -139,13 +139,6 @@ cd /user/web/wiki-proxy/server
 ```
 
 <p style="text-indent: 2em;">Execute the following command to build a Docker image</p>
-
-```shell
-docker build -t wiki-proxy-server .
-
-```
-
-### 4.1.2 Run Docker image
 
 ```shell
 ./start.sh
@@ -161,11 +154,11 @@ docker build -t wiki-proxy-server .
 
 ## 4.2 Deploy client
 
-<p style="text-indent: 2em;">First, upload the wiki-proy-client. jar package, Dockerfile, start.sh, and stop.sh to the server/user/web/wiki proxy/client directory.</p>
+<p style="text-indent: 2em;">First, upload the wiki-proy-client. jar package, Dockerfile, start.sh, and stop.sh to the server/user/web/wiki proxy/client directory (modify according to your own server directory structure)</p>
 
-### 4.2.1 Building Docker Images
+### 4.2.1 Build and run Docker images
 
-<p style="text-indent: 2em;">Switch the working directory to the /user/web/wiki proxy/client directory</p>
+<p style="text-indent: 2em;">Switch the working directory to the /user/web/wiki-proxy/client directory</p>
 
 ```shell
 cd /user/web/wiki-proxy/client
@@ -173,13 +166,6 @@ cd /user/web/wiki-proxy/client
 ```
 
 <p style="text-indent: 2em;">Execute the following command to build a Docker image</p>
-
-```shell
-docker build -t wiki-proxy-client .
-
-```
-
-### 4.2.2 Run Docker image
 
 ```shell
 ./start.sh

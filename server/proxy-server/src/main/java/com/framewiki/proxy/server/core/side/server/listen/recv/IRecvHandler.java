@@ -1,10 +1,10 @@
 package com.framewiki.proxy.server.core.side.server.listen.recv;
 
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.recv
+ * @Package: com.framewiki.proxy.core.side.server.listen.recv
  * @ClassName: IRecvHandler
  * @Description: 接收处理器
  * @Author: frank tiger

@@ -1,11 +1,10 @@
 package com.framewiki.proxy.client.core.side.client.handler.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.FrameResultEnum;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.FrameResultEnum;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
-import com.framewiki.proxy.client.core.side.client.config.impl.SecretInteractiveClientConfig;
 import com.framewiki.proxy.client.core.side.client.handler.IClientHandler;
 
 

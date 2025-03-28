@@ -1,12 +1,12 @@
 package com.framewiki.proxy.client.core.side.client.config.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.api.IHttpRouting;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.api.socket.part.HttpRouteSocketPart;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.HttpRoute;
-import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.core.api.IHttpRouting;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.HttpRouteSocketPart;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.HttpRoute;
+import com.framewiki.proxy.core.model.InteractiveModel;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
 import com.framewiki.proxy.client.core.side.client.adapter.impl.InteractiveSimpleClientAdapter;
@@ -14,7 +14,7 @@ import com.framewiki.proxy.client.core.side.client.handler.impl.CommonReplyHandl
 import com.framewiki.proxy.client.core.side.client.handler.impl.ServerHeartHandler;
 import com.framewiki.proxy.client.core.side.client.handler.impl.ServerWaitClientHandler;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;
-import com.framewiki.network.proxy.util.AssertUtils;
+import com.framewiki.proxy.core.util.AssertUtils;
 import lombok.Getter;
 
 import org.apache.commons.lang3.StringUtils;

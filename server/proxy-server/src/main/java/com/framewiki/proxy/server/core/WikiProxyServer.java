@@ -12,7 +12,7 @@ import com.framewiki.proxy.server.core.side.server.listen.config.impl.MultContro
 import com.framewiki.proxy.server.core.side.server.listen.config.impl.SecretSimpleListenServerConfig;
 import com.framewiki.proxy.server.core.side.server.listen.config.impl.SimpleListenServerConfig;
 import com.framewiki.proxy.server.core.side.server.listen.serversocket.ICreateServerSocket;
-import com.framewiki.network.proxy.common.CommonConstants;
+import com.framewiki.proxy.core.common.CommonConstants;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.net.ssl.KeyManagerFactory;
@@ -22,7 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.KeyStore;
 
-import static com.framewiki.network.proxy.common.CommonConstants.ListenDest;
+import static com.framewiki.proxy.core.common.CommonConstants.ListenDest;
 
 /**
  * @ProjectName: wiki-proxy
