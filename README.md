@@ -3,13 +3,6 @@
 </p>
 
 <p align="center">
-<font size=7>维基代理</font>
-</p>
-
-<p align="center"><font size=6>Wiki Proxy</font></p>
-
-
-<p align="center">
   <a href='https://gitee.com/cdkjframework/wiki-proxy/stargazers'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/star.svg?theme=dark' alt='star'></img></a>
 <a href='https://gitee.com/cdkjframework/wiki-proxy/members'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/fork.svg?theme=dark' alt='fork'></img></a>
 <a target="_blank" href="https://www.oracle.com/java/technologies/javase/jdk17-0-13-later-archive-downloads.html">
