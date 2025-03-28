@@ -1,29 +1,23 @@
-# FrameWiKi Network Proxy
-
-Wiki Framework Internal Network Penetration Tool
-*********************
-
-## What does FrameWiKi Network Proxy do?
-
--Users are required to provide hardware support services, computers, and deployed intranet penetration tools on their
-own.
--We can provide intranet penetration services for TCP protocol types, including but not limited to HTTP (s), database
-connection, SSH, and other protocols.
--Support HTTPS and HTTP protocols and application interaction methods (HTTPS is recommended for greater security).
--Support unencrypted, control port encrypted interaction, and data encrypted interaction methods.
--The main service scenario requires opening up internal network applications to the public network, such as WeChat mini
-program development and debugging, payment callbacks, etc.
--Support HTTP reverse proxy based on host; The target is still an internal network application, but the target
-application can be selected based on the host field in the HTTP protocol header (note: it was only suggested by someone)
-The issue of HTTP listening on a unified port and accessing it using a domain name, and the added value of this feature;
-There is no load function, this is internal network penetration, not
-nginx， It is not recommended to use it directly in production, and those that require load can be implemented by
-themselves
+<p align="center">
+<img alt="keytool" src="assets/developer/wiki.png"/>
+</p>
+<p align="center">
+  <a href='https://gitee.com/cdkjframework/wiki-proxy/stargazers'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/star.svg?theme=dark' alt='star'></img></a>
+<a href='https://gitee.com/cdkjframework/wiki-proxy/members'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/fork.svg?theme=dark' alt='fork'></img></a>
+<a target="_blank" href="https://www.oracle.com/java/technologies/javase/jdk17-0-13-later-archive-downloads.html">
+    <img src="https://img.shields.io/badge/JDK-17+-red.svg" />
+</a>
+<a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-red" alt="license MIT">
+</a>
+</p>
 
 # 1. Introduction
 
-<p style="text-indent: 2em;">Wiki proxy is an open-source Java intranet penetration project based on Netty. Following the MIT license, you may copy,
-modify, distribute, and use it for any personal or commercial activity.</p>
+- Wiki proxy, an open-source Java intranet penetration project.
+- Technical stack: cdkjFramework (Wiki Framework) JPA、Netty
+- Following the MIT license, you may copy, modify, distribute, and use it for any personal or commercial activity.
+- Official website address: https://www.framewiki.com/
 
 # 2. Project Structure
 
