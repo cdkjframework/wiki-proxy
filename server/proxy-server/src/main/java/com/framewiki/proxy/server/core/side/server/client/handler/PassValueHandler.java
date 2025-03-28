@@ -1,12 +1,12 @@
 package com.framewiki.proxy.server.core.side.server.client.handler;
 
 import com.framewiki.proxy.server.core.side.server.client.adapter.impl.PassValueNextEnum;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.common.Optional;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.common.Optional;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.handler
+ * @Package: com.framewiki.proxy.core.side.server.client.handler
  * @ClassName: PassValueHandler
  * @Description: 传值方式客户端是配置的处理接口
  * @Author: frank tiger

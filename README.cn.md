@@ -1,23 +1,24 @@
-# FrameWiKi Network Proxy
+<p align="center">
+<img alt="keytool" src="assets/developer/wiki.png"/>
+</p>
 
-维基框架内网穿透工具
-
-*********************
-
-## FrameWiKi Network Proxy 是做什么的？
-
-- 需要用户自行提供硬件支持的服务或电脑、部署的内网穿透工具。
-- 可提供TCP协议类型的内网穿透服务，包括但不限于 http(s)、数据库连接、ssh等协议。
-- 支持https 与 http协议与应用交互方式（推荐使用https更安全）。
-- 支持无加密、控制端口加密交互、数据加密交互方式。
-- 主要服务场景，需要将内网的应用开放到公网，如微信小程序开发调试、支付回调等。
-- 支持 http 根据 host 进行反向代理；目标依然是内网应用，只是可以根据 http 协议 header 中的 host 字段区分选择目标应用（注意：只是有人提出来了
-  http 监听统一端口并用域名访问的问题，并且有做的价值才补充的该功能；没做负载功能，这个是内网穿透，不是
-  nginx，更不建议直接用在生产上，需要负载的可以自己去实现）
+<p align="center">
+  <a href='https://gitee.com/cdkjframework/wiki-proxy/stargazers'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/star.svg?theme=dark' alt='star'></img></a>
+<a href='https://gitee.com/cdkjframework/wiki-proxy/members'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/fork.svg?theme=dark' alt='fork'></img></a>
+<a target="_blank" href="https://www.oracle.com/java/technologies/javase/jdk17-0-13-later-archive-downloads.html">
+    <img src="https://img.shields.io/badge/JDK-17+-red.svg" />
+</a>
+<a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-red" alt="license MIT">
+</a>
+</p>
 
 # 1、简介
 
-<p style="text-indent: 2em;">维基代理（wiki-proxy）是一个基于Netty的、开源的java内网穿透项目。遵循MIT许可，因此您可以对它进行复制、修改、传播并用于任何个人或商业行为。</p>
+- 维基代理（wiki-proxy）、开源的java内网穿透项目。
+- 技术栈：cdkjFramework（维基框架）、JPA、Netty
+- 遵循MIT许可，因此您可以对它进行复制、修改、传播并用于任何个人或商业行为。
+- 官网地址：https://www.framewiki.com/
 
 # 2、项目结构
 
@@ -123,9 +124,9 @@ spring:
 
 <p style="text-indent: 2em;">先将wiki-proxy-server.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/server 目录下。</p>
 
-### 4.1.1 构建Docker镜像
+### 4.1.1 构建并运行Docker镜像
 
-<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/server目录下</p>
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/server目录下（根据自己的服务器目录结构进行修改）</p>
 
 ```shell
 cd /user/web/wiki-proxy/server
@@ -134,14 +135,7 @@ cd /user/web/wiki-proxy/server
 
 <p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
 
-```shell
-docker build -t wiki-proxy-server .
-
-```
-
-### 4.1.2 运行Docker镜像
-
-```shell
+``` shell
 ./start.sh
 
 ```
@@ -157,9 +151,9 @@ docker build -t wiki-proxy-server .
 
 <p style="text-indent: 2em;">先将wiki-proxy-client.jar包、Dockerfile、start.sh、stop.sh上传至服务器 /user/web/wiki-proxy/client 目录下。</p>
 
-### 4.2.1 构建Docker镜像
+### 4.2.1 构建并运行Docker镜像
 
-<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/client 目录下</p>
+<p style="text-indent: 2em;">切换工作目录至/user/web/wiki-proxy/client 目录下（根据自己的服务器目录结构进行修改）</p>
 
 ```shell
 cd /user/web/wiki-proxy/client
@@ -167,13 +161,6 @@ cd /user/web/wiki-proxy/client
 ```
 
 <p style="text-indent: 2em;">执行如下命令构建Docker镜像</p>
-
-```shell
-docker build -t wiki-proxy-client .
-
-```
-
-### 4.2.2 运行Docker镜像
 
 ```shell
 ./start.sh

@@ -1,10 +1,10 @@
 package com.framewiki.proxy.server.core.side.server.listen.config.impl;
 
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
-import com.framewiki.network.proxy.api.secret.impl.AesSecret;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.api.socket.part.SecretSocketPart;
-import com.framewiki.network.proxy.util.AesUtils;
+import com.framewiki.proxy.core.api.secret.impl.AesSecret;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.SecretSocketPart;
+import com.framewiki.proxy.core.util.AesUtils;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +12,7 @@ import java.security.Key;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: AllSecretSimpleListenServerConfig
  * @Description: 交互及隧道都加密
  * @Author: frank tiger

@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.adapter
+ * @Package: com.framewiki.proxy.core.side.server.client.adapter
  * @ClassName: PassValueNextEnum
  * @Description: 传值适配器的handler回复信息
  * @Author: frank tiger

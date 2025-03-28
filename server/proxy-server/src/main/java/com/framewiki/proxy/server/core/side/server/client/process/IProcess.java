@@ -1,11 +1,11 @@
 package com.framewiki.proxy.server.core.side.server.client.process;
 
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.process
+ * @Package: com.framewiki.proxy.core.side.server.client.process
  * @ClassName: IProcess
  * @Description: 处理方法接口
  * @Author: frank tiger

@@ -2,11 +2,11 @@ package com.framewiki.proxy.client.core.side.client.config.impl;
 
 import com.cdkjframework.exceptions.GlobalRuntimeException;
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.api.socket.part.SimpleSocketPart;
-import com.framewiki.network.proxy.channel.impl.InteractiveChannelBase;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.SimpleSocketPart;
+import com.framewiki.proxy.core.channel.impl.InteractiveChannelBase;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
 import com.framewiki.proxy.client.core.side.client.adapter.impl.InteractiveSimpleClientAdapter;

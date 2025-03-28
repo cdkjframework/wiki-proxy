@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen
+ * @Package: com.framewiki.proxy.core.side.server.listen
  * @ClassName: ListenServerControl
  * @Description: 转发监听服务控制类
  * @Author: frank tiger

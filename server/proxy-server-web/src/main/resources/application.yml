@@ -11,8 +11,8 @@ spring:
       # 暴露端口 可以为多个
       port:
         - 443
-      #  证书存放路径，若不想打进jar包，可不带classpath:前缀
-      ssl-key-store-path: "D:\\Project\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
+      #  证书存放路径
+      ssl-key-store-path: "F:\\workspace\\wiki-proxy\\server\\proxy-server-web\\src\\main\\resources\\wiki-proxy.jks"
       # 证书密码
       ssl-key-store-password: "wiki-proxy@SaFePwd2025!"
       # 证书类型

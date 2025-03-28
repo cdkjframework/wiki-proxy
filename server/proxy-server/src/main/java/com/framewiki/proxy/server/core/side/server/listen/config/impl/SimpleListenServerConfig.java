@@ -2,12 +2,11 @@ package com.framewiki.proxy.server.core.side.server.listen.config.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.api.socket.part.SimpleSocketPart;
-import com.framewiki.network.proxy.channel.impl.InteractiveChannelBase;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.proxy.server.core.side.server.client.adapter.impl.ReadAheadPassValueAdapter;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.SimpleSocketPart;
+import com.framewiki.proxy.core.channel.impl.InteractiveChannelBase;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.impl.ClearInvalidSocketPartThread;
@@ -32,7 +31,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: SimpleListenServerConfig
  * @Description: 简单的交互、隧道；监听服务配置
  * @Author: frank tiger

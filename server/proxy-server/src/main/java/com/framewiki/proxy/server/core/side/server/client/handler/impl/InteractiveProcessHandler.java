@@ -1,15 +1,14 @@
 package com.framewiki.proxy.server.core.side.server.client.handler.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.common.Optional;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.FrameResultEnum;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.common.Optional;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.FrameResultEnum;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
 import com.framewiki.proxy.server.core.side.server.client.adapter.impl.PassValueNextEnum;
 import com.framewiki.proxy.server.core.side.server.client.handler.PassValueHandler;
 import com.framewiki.proxy.server.core.side.server.client.process.IProcess;
-import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 
 
 import java.util.LinkedList;
@@ -17,7 +16,7 @@ import java.util.List;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.handler
+ * @Package: com.framewiki.proxy.core.side.server.client.handler
  * @ClassName: InteractiveIProcessHandler
  * @Description: 常规接收处理handler
  * @Author: frank tiger

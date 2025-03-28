@@ -1,12 +1,12 @@
 package com.framewiki.proxy.server.core.side.server.client.adapter.impl;
 
 import com.framewiki.proxy.server.core.side.server.client.config.IClientServiceConfig;
-import com.framewiki.network.proxy.model.InteractiveModel;
+import com.framewiki.proxy.core.model.InteractiveModel;
 import com.framewiki.proxy.server.core.side.server.client.handler.impl.DefaultInteractiveProcessHandler;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.adapter
+ * @Package: com.framewiki.proxy.core.side.server.client.adapter
  * @ClassName: DefaultReadAheadPassValueAdapter
  * @Description: 默认的预读后处理适配器
  * @Author: frank tiger

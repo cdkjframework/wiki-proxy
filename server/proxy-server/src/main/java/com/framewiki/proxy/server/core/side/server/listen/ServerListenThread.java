@@ -2,17 +2,16 @@ package com.framewiki.proxy.server.core.side.server.listen;
 
 import com.cdkjframework.exceptions.GlobalRuntimeException;
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.proxy.server.core.side.server.listen.config.impl.SimpleListenServerConfig;
 import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket;
-import com.framewiki.network.proxy.api.IBelongControl;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
-import com.framewiki.network.proxy.common.CommonFormat;
-import com.framewiki.network.proxy.executor.FrameExecutor;
-import com.framewiki.network.proxy.nio.NioProcessed;
-import com.framewiki.network.proxy.nio.impl.NioHallows;
+import com.framewiki.proxy.core.api.IBelongControl;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.common.CommonFormat;
+import com.framewiki.proxy.core.executor.FrameExecutor;
+import com.framewiki.proxy.core.nio.NioProcessed;
+import com.framewiki.proxy.core.nio.impl.NioHallows;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.config.ListenServerConfig;
-import com.framewiki.network.proxy.util.AssertUtils;
+import com.framewiki.proxy.core.util.AssertUtils;
 
 
 import java.io.IOException;
@@ -26,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen
+ * @Package: com.framewiki.proxy.core.side.server.listen
  * @ClassName: ServerListenThread
  * @Description: 监听转发服务进程
  * @Author: frank tiger

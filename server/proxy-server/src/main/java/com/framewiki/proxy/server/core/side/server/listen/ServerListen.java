@@ -4,7 +4,7 @@ import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen
+ * @Package: com.framewiki.proxy.core.side.server.listen
  * @ClassName: ServerListen
  * @Description: 监听转发服务进程
  * @Author: frank tiger

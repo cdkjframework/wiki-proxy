@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: MultControlSocket
  * @Description: 复合 控制socket实例
  * @Author: frank tiger

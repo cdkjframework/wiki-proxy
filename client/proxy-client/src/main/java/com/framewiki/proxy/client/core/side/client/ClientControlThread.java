@@ -1,8 +1,8 @@
 package com.framewiki.proxy.client.core.side.client;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.api.IBelongControl;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.IBelongControl;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
 import com.framewiki.proxy.client.core.side.client.adapter.ClientAdapter;
 import com.framewiki.proxy.client.core.side.client.config.ClientConfig;
 import com.framewiki.proxy.client.core.side.client.heart.IClientHeartThread;
@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.nio
+ * @Package: com.framewiki.proxy.core.nio
  * @ClassName: FrameExecutor
  * @Description: 客户端控制服务
  * @Author: frank tiger

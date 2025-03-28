@@ -2,7 +2,7 @@ package com.framewiki.proxy.server.core.side.server.listen.clear;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen
+ * @Package: com.framewiki.proxy.core.side.server.listen
  * @ClassName: IClearInvalidSocketPartThread
  * @Description: 清理无效端口 线程
  * @Author: frank tiger

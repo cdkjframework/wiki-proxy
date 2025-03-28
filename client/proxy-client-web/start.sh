@@ -1,23 +1,73 @@
 #!/bin/bash
-echo "开始构建"
-#构建镜像
-#分别输入 容器名称 和要构建的 版本号 eg test 111 生成版本号为 test:111
-#contain_name=test
-#version=1
-contain_name=wiKi-proxy-client
-read -p "Please enter your contain name and version eg : v1.0: " version
-echo "contain name and version is [${contain_name}:${version}]"
-#输入要构建的端口号 或者自定义
-#server_port=8001
-read -p "Please enter your application server port in(1024到49151) " server_port
-echo "you input server port is [${server_port}]"
-#取消自定义命令
-#contain_name=demo
-docker rmi ${contain_name}:${version}
-docker buildx build -t  ${contain_name}:${version} .
-#停用之前的服务
-docker stop ${contain_name}
-docker rm ${contain_name}
-#启动容器
-docker run -p ${server_port}:${server_port} -e server_port=${server_port} --name ${contain_name} -d ${contain_name}:${version}
-echo "构建完成"
+
+contain_name="wiki-proxy-client"
+default_port=8888
+default_tcp_port=10010
+default_ip="127.0.0.1"
+default_profile="test"
+
+# 输入镜像版本
+read -p "请输入镜像版本号（例如 v1.0.0）: " version
+if [[ -z "$version" ]]; then
+  echo "错误：版本号不能为空！"
+  exit 1
+fi
+
+# 输入应用端口（校验范围）
+while true; do
+  read -p "请输入应用端口号（1024-49151，默认${default_port}）: " server_port
+  server_port=${server_port:-$default_port}
+  if [[ "$server_port" =~ ^[0-9]+$ ]] && [ "$server_port" -ge 1024 ] && [ "$server_port" -le 49151 ]; then
+    break
+  else
+    echo "错误：端口号必须是1024到49151之间的数字！"
+  fi
+done
+# 输入应用TCP端口（校验范围）
+while true; do
+  read -p "请输入应用TCP端口号（1024-49151，默认${default_tcp_port}）: " tcp_port
+  tcp_port=${tcp_port:-$default_tcp_port}
+  if [[ "$tcp_port" =~ ^[0-9]+$ ]] && [ "$tcp_port" -ge 1024 ] && [ "$tcp_port" -le 49151 ]; then
+    break
+  else
+    echo "错误：端口号必须是1024到49151之间的数字！"
+  fi
+done
+
+# 输入 Spring 配置文件（例如 test, dev, prod）
+read -p "请输入应用TCP IP（默认${default_ip}）切记输入为服务器的IP地址: " tcp_ip
+tcp_ip=${tcp_ip:-$default_ip}
+
+# 输入 Spring 配置文件（例如 test, dev, prod）
+read -p "请输入 Spring 配置文件（默认${default_profile}）: " profile
+profile=${profile:-$default_profile}
+
+echo "------------------------------"
+echo "镜像名称与版本: ${contain_name}:${version}"
+echo "应用端口号: ${server_port}"
+echo "应用TCP端口号: ${tcp_port}"
+echo "应用TCP IP: ${tcp_ip}"
+echo "使用的 Spring 配置文件: ${profile}"
+echo "------------------------------"
+
+# 清理旧镜像和容器
+docker stop ${contain_name} 2>/dev/null
+docker rm ${contain_name} 2>/dev/null
+docker rmi ${contain_name}:${version} 2>/dev/null
+
+# 构建镜像（传递构建参数）
+docker build --build-arg SERVER_PORT=${server_port} --build-arg TCP_IP=${tcp_ip} --build-arg TCP_PORT=${tcp_port} --build-arg SPRING_PROFILE=${profile} -t ${contain_name}:${version} .
+
+# 运行容器（传递环境变量）
+docker run -d \
+  --restart always \
+  -p ${server_port}:${server_port} \
+  --name ${contain_name} \
+  -e SERVER_PORT=${server_port} \
+  -e TCP_PORT=${tcp_port} \
+  -e TCP_IP=${tcp_ip} \
+  -e SPRING_PROFILE=${profile} \
+  ${contain_name}:${version}
+
+echo "构建完成！"
+echo "访问地址：http://localhost:${server_port}"

@@ -1,9 +1,11 @@
-#vi stopAndRemoveContain.sh
 #!/bin/bash
-contain_name=wiKi-proxy-client
-#停止容器
-docker stop ${contain_name}
-#删除容器
-docker rm ${contain_name}
-#删除容器镜像
-docker rmi ${contain_name}
+
+contain_name="wiki-proxy-client"
+
+# 检查并停止容器
+if docker ps -q -f name=${contain_name}; then
+  echo "停止容器 ${contain_name} ..."
+  docker stop ${contain_name}
+else
+  echo "容器 ${contain_name} 未运行或不存在！"
+fi

@@ -1,10 +1,9 @@
 package com.framewiki.proxy.server.core.side.server.listen.recv.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.model.enums.InteractiveTypeEnum;
-import com.framewiki.proxy.server.core.side.server.listen.clear.impl.ClearInvalidSocketPartThread;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.model.enums.InteractiveTypeEnum;
 import com.framewiki.proxy.server.core.side.server.listen.recv.IRecvHandler;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +13,7 @@ import java.util.Objects;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.recv
+ * @Package: com.framewiki.proxy.core.side.server.listen.recv
  * @ClassName: CommonReplyHandler
  * @Description: 统一回复 处理器
  * @Author: frank tiger

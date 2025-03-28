@@ -1,11 +1,10 @@
 package com.framewiki.proxy.server.core.side.server.listen.config.impl;
 
 import com.cdkjframework.util.log.LogUtils;
-import com.framewiki.network.proxy.channel.impl.SecretInteractiveChannelBase;
-import com.framewiki.network.proxy.channel.impl.BaseSocketChannel;
-import com.framewiki.network.proxy.model.InteractiveModel;
-import com.framewiki.network.proxy.util.AesUtils;
-import com.framewiki.proxy.server.core.side.server.listen.control.impl.ControlSocket;
+import com.framewiki.proxy.core.channel.impl.SecretInteractiveChannelBase;
+import com.framewiki.proxy.core.channel.impl.BaseSocketChannel;
+import com.framewiki.proxy.core.model.InteractiveModel;
+import com.framewiki.proxy.core.util.AesUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,7 @@ import java.security.Key;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: SecretSimpleListenServerConfig
  * @Description: 交互加密配置
  * @Author: frank tiger

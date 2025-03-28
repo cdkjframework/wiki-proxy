@@ -4,7 +4,7 @@ import java.net.Socket;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client.adapter
+ * @Package: com.framewiki.proxy.core.side.server.client.adapter
  * @ClassName: ClientServiceAdapter
  * @Description: Client service adapter
  * @Author: frank tiger

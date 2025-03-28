@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.framewiki.proxy.server.core.side.server.listen.ServerListenThread;
 import com.framewiki.proxy.server.core.side.server.listen.clear.IClearInvalidSocketPartThread;
 import com.framewiki.proxy.server.core.side.server.listen.control.IControlSocket;
-import com.framewiki.network.proxy.api.socket.part.BaseSocketPart;
+import com.framewiki.proxy.core.api.socket.part.BaseSocketPart;
 
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.listen.config
+ * @Package: com.framewiki.proxy.core.side.server.listen.config
  * @ClassName: ListenServerConfig
  * @Description: 穿透监听服务配置
  * @Author: frank tiger

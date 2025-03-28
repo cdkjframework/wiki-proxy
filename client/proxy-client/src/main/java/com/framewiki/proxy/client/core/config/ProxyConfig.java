@@ -3,6 +3,7 @@ package com.framewiki.proxy.client.core.config;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Data
+@Primary
 @Component
 @Configuration
 @ConfigurationProperties(prefix = "spring.proxy.client")

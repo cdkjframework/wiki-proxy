@@ -3,10 +3,10 @@ package com.framewiki.proxy.server.core.side.server.client;
 import com.cdkjframework.exceptions.GlobalRuntimeException;
 import com.cdkjframework.util.log.LogUtils;
 import com.framewiki.proxy.server.core.side.server.client.config.IClientServiceConfig;
-import com.framewiki.network.proxy.executor.FrameExecutor;
-import com.framewiki.network.proxy.nio.NioProcessed;
-import com.framewiki.network.proxy.nio.impl.NioHallows;
-import com.framewiki.network.proxy.util.AssertUtils;
+import com.framewiki.proxy.core.executor.FrameExecutor;
+import com.framewiki.proxy.core.nio.NioProcessed;
+import com.framewiki.proxy.core.nio.impl.NioHallows;
+import com.framewiki.proxy.core.util.AssertUtils;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,7 +18,7 @@ import java.util.Objects;
 
 /**
  * @ProjectName: wiki-proxy
- * @Package: com.framewiki.network.proxy.side.server.client
+ * @Package: com.framewiki.proxy.core.side.server.client
  * @ClassName: ClientServiceThread
  * @Description: Client service process
  * @Author: frank tiger

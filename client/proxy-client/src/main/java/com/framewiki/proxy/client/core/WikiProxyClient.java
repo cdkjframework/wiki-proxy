@@ -1,8 +1,10 @@
 package com.framewiki.proxy.client.core;
 
+import com.cdkjframework.util.log.LogUtils;
+import com.cdkjframework.util.tool.JsonUtils;
 import com.framewiki.proxy.client.core.config.ProxyConfig;
-import com.framewiki.network.proxy.common.CommonConstants;
-import com.framewiki.network.proxy.model.HttpRoute;
+import com.framewiki.proxy.core.common.CommonConstants;
+import com.framewiki.proxy.core.model.HttpRoute;
 import com.framewiki.proxy.client.core.side.client.ClientControlThread;
 import com.framewiki.proxy.client.core.side.client.config.impl.AllSecretInteractiveClientConfig;
 import com.framewiki.proxy.client.core.side.client.config.impl.HttpRouteClientConfig;
@@ -12,7 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
-import static com.framewiki.network.proxy.common.CommonConstants.ListenDest;
+import static com.framewiki.proxy.core.common.CommonConstants.ListenDest;
 
 /**
  * @ProjectName: wiki-proxy
@@ -24,6 +26,10 @@ import static com.framewiki.network.proxy.common.CommonConstants.ListenDest;
  * @Version: 1.0
  */
 public class WikiProxyClient {
+  /**
+   * 日志
+   */
+  private final LogUtils log = LogUtils.getLogger(WikiProxyClient.class);
 
   /**
    * 配置
