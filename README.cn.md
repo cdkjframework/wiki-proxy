@@ -2,9 +2,12 @@
 <img alt="keytool" src="assets/developer/wiki.png"/>
 </p>
 
-# <center> 维基代理
 
-### <center> Wiki Proxy
+<p align="center">
+<font size=7>维基代理</font>
+</p>
+
+<p align="center"><font size=6>Wiki Proxy</font></p>
 
 <p align="center">
   <a href='https://gitee.com/cdkjframework/wiki-proxy/stargazers'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/star.svg?theme=dark' alt='star'></img></a>
