@@ -1,8 +1,10 @@
 <p align="center">
 <img alt="keytool" src="assets/developer/wiki.png"/>
 </p>
-<h1 style="text-align: center">维基代理</h1>
-<h4 style="text-align: center">Wiki Proxy</h4>
+
+<center><font size=7>维基代理</font></center>
+<center><font size=6>Wiki Proxy</font></center>
+
 <p align="center">
   <a href='https://gitee.com/cdkjframework/wiki-proxy/stargazers'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/star.svg?theme=dark' alt='star'></img></a>
 <a href='https://gitee.com/cdkjframework/wiki-proxy/members'><img src='https://gitee.com/cdkjframework/wiki-proxy/badge/fork.svg?theme=dark' alt='fork'></img></a>
