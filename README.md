@@ -189,3 +189,7 @@ cd /user/web/wiki-proxy/client
   <a href=" https://gitee.com/cdkjframework " target="_blank">
   <img src="assets/developer/wiki.png" width="11%"/>
   </a>
+
+  <a href="https://gitee.com/linkeddt_admin" target="_blank">
+  <img alt="linkeddt" src="assets/developer/linkeddt.png" width="110"/>
+  </a>
